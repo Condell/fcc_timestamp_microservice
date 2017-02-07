@@ -4,7 +4,13 @@
   "description": "Free Code Camp Back-end Certification Timestamp Project",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter progress server/testSetup.js \"server/**/*.test.js\""
+    "lint": "esw server --color",
+    "lint:watch": "npm run lint -- --watch",
+    "security-check": "nsp check",
+    "prestart": "babel-node buildScripts/startMessage.js",
+    "start": "npm-run-all --parallel security-check test:watch lint:watch",
+    "test": "mocha --reporter progress buildScripts/testSetup.js \"server/**/*.test.js\"",
+    "test:watch": "npm run test -- --watch"
   },
   "repository": {
     "type": "git",
