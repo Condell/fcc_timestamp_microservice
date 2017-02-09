@@ -2,14 +2,14 @@
   "name": "fcc_timestamp_microservice",
   "version": "1.0.0",
   "description": "Free Code Camp Back-end Certification Timestamp Project",
-  "main": "index.js",
+  "main": "server/app.js",
   "scripts": {
     "lint": "esw server --color",
     "lint:watch": "npm run lint -- --watch",
     "security-check": "nsp check",
-    "prestart": "babel-node buildScripts/startMessage.js",
+    "prestart": "babel-node buildScripts/startMessage.js server/app.js",
     "start": "npm-run-all --parallel security-check test:watch lint:watch",
-    "test": "mocha --reporter progress buildScripts/testSetup.js \"server/**/*.test.js\"",
+    "test": "mocha --reporter spec buildScripts/testSetup.js \"server/**/*.test.js\"",
     "test:watch": "npm run test -- --watch"
   },
   "repository": {
@@ -40,9 +40,12 @@
     "eslint-watch": "^2.1.14",
     "mocha": "^3.2.0",
     "npm-run-all": "^4.0.1",
-    "nsp": "^2.6.2"
+    "nsp": "^2.6.2",
+    "open": "0.0.5"
   },
   "dependencies": {
-    "body-parser": "^1.16.0"
+    "body-parser": "^1.16.0",
+    "express": "^4.14.1",
+    "morgan": "^1.8.0"
   }
 }
