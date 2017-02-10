@@ -1,20 +1,18 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import morgan from 'morgan';
+import router from './routes/index';
 
 
 const port = process.env.PORT || 3000;
 const app = express();
-const jsonParser = bodyParser.json();
 
 
 app.use(morgan('dev'));
 
-app.get('/', jsonParser, (req, res) => {
-  res.json({
-    message: 'Responding with json',
-  });
-});
+app.use('/', router);
+
+
+// Set up Catch statement + general Error Handler
 
 
 app.listen(port, () => {
