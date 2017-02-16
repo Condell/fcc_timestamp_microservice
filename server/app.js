@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 
 
 app.get('/:timestamp', (req, res) => {
-  let timestamp = req.params.timestamp;
+  const timestamp = req.params.timestamp;
   res.json(createCompleteTimestamp(timestamp));
 });
 

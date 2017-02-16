@@ -1,13 +1,13 @@
 import {
   expect,
 } from 'chai';
+import datejs from 'datejs'; // eslint-disable-line no-unused-vars
 import {
   queryStringToDate,
   parsedToUnix,
   parsedToNatural,
   createCompleteTimestamp,
 } from './calcResponse';
-import datejs from 'datejs';
 
 // Add Error cases.
 

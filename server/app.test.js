@@ -5,6 +5,8 @@ import {
 import chaiHttp from 'chai-http';
 import app from './app';
 
+/* eslint-disable no-unused-expressions */
+
 chai.use(chaiHttp);
 
 

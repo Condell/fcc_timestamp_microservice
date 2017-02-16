@@ -2,36 +2,33 @@ import datejs from 'datejs'; // eslint-disable-line no-unused-vars
 
 
 function queryStringToDate(string) {
-  if (Number.parseInt(string)) {
-    let epochDate = new Date(0);
-    let unixNumber = Number.parseInt(string);
-    let unixDateNumber = epochDate.setUTCSeconds(unixNumber);
+  if (Number.parseInt(string, 10)) {
+    const epochDate = new Date(0);
+    const unixNumber = Number.parseInt(string, 10);
+    const unixDateNumber = epochDate.setUTCSeconds(unixNumber);
     return new Date(unixDateNumber);
-  } else {
-    return Date.parse(string);
   }
-}
 
+  return Date.parse(string);
+}
 
 
 function parsedToUnix(parsedDate) {
   if (parsedDate === null) {
     return null;
-  } else {
-    const unixTimeMilliseconds = parsedDate.getTime();
-    const unixTimeSeconds = unixTimeMilliseconds / 1000;
-    return unixTimeSeconds;
   }
+  const unixTimeMilliseconds = parsedDate.getTime();
+  const unixTimeSeconds = unixTimeMilliseconds / 1000;
+  return unixTimeSeconds;
 }
 
 
 function parsedToNatural(parsedDate) {
   if (parsedDate === null) {
     return null;
-  } else {
-    const naturalString = parsedDate.toString('MMMM dd, yyyy');
-    return naturalString;
   }
+  const naturalString = parsedDate.toString('MMMM dd, yyyy');
+  return naturalString;
 }
 
 
