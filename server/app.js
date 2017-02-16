@@ -1,6 +1,6 @@
 import express from 'express';
 import morgan from 'morgan';
-
+import { createCompleteTimestamp } from './utilities/calcResponse';
 
 const port = process.env.PORT || 3000;
 const app = express();
@@ -9,12 +9,15 @@ const app = express();
 app.use(morgan('dev'));
 
 
-app.get('/', () => {});
+app.get('/', (req, res) => {
+  res.json(createCompleteTimestamp('928357984'));
+});
 
 
-// app.get('/:timestamp', (req, res) => {
-//   let timestamp = req.params.timestamp;
-// });
+app.get('/:timestamp', (req, res) => {
+  let timestamp = req.params.timestamp;
+  res.json(createCompleteTimestamp(timestamp));
+});
 
 
 // Set up Catch statement + general Error Handler
