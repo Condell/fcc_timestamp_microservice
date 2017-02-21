@@ -24,10 +24,11 @@ function parsedToUnix(parsedDate) {
 
 
 function parsedToNatural(parsedDate) {
+  //  Need to improve validation for dates like November 54 2010
   if (parsedDate === null) {
     return null;
   }
-  const naturalString = parsedDate.toString('MMMM dd, yyyy');
+  const naturalString = parsedDate.toString('MMMM d, yyyy');
   return naturalString;
 }
 

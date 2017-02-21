@@ -4,8 +4,10 @@
   "description": "Free Code Camp Back-end Certification Timestamp Project",
   "main": "app.js",
   "scripts": {
+    "build": "babel server -d production --ignore test.js --plugins transform-remove-console",
     "lint": "esw server --color",
     "lint:watch": "npm run lint -- --watch",
+    "serve": "node production/app.js",
     "security-check": "nsp check",
     "prestart": "babel-node buildScripts/startMessage.js server/**/*.js",
     "start": "npm-run-all --parallel security-check test:watch lint:watch",
@@ -27,6 +29,7 @@
     "babel": "^6.5.2",
     "babel-cli": "^6.22.2",
     "babel-core": "^6.22.1",
+    "babel-plugin-transform-remove-console": "^6.8.0",
     "babel-preset-latest": "^6.22.0",
     "babel-register": "^6.22.0",
     "chai": "^3.5.0",
@@ -39,15 +42,13 @@
     "eslint-plugin-react": "^6.9.0",
     "eslint-watch": "^2.1.14",
     "mocha": "^3.2.0",
+    "morgan": "^1.8.1",
     "npm-run-all": "^4.0.1",
     "nsp": "^2.6.2",
     "open": "0.0.5"
   },
   "dependencies": {
-    "body-parser": "^1.16.0",
     "datejs": "^1.0.0-rc3",
-    "express": "^4.14.1",
-    "moment": "^2.17.1",
-    "morgan": "^1.8.0"
+    "express": "^4.14.1"
   }
 }
