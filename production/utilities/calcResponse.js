@@ -15,13 +15,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 
 function queryStringToDate(string) {
-  if (Number.parseInt(string, 10) && new Date(string) != 'Invalid Date') {
-    // eslint-disable-line eqeqeq
+  if (Number.parseInt(string, 10)) {
     var epochDate = new Date(0);
     var unixNumber = Number.parseInt(string, 10);
     var unixDateNumber = epochDate.setUTCSeconds(unixNumber);
+    if (new Date(unixDateNumber) == 'Invalid Date') {
+      // eslint-disable-line eqeqeq
+      return null;
+    }
     return new Date(unixDateNumber);
-  } else if (new Date(string) == 'Invalid Date') {
+  }
+  if (new Date(string) == 'Invalid Date') {
     // eslint-disable-line eqeqeq
     return null;
   }
