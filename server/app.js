@@ -1,12 +1,19 @@
 import express from 'express';
 import morgan from 'morgan';
+import cors from 'cors';
 import { createCompleteTimestamp } from './utilities/calcResponse';
 
 const port = process.env.PORT || 3000;
 const app = express();
+const env = process.env.NODE_ENV || 'development';
 
 
-app.use(morgan('dev'));
+if (env === 'development') {
+  app.use(morgan('dev'));
+}
+
+
+app.use(cors());
 
 
 app.get('/', (req, res) => {
@@ -20,7 +27,7 @@ app.get('/:timestamp', (req, res) => {
 });
 
 
-// Set up Catch statement + general Error Handler
+// TODO: Set up Catch statement + general Error Handler
 
 
 app.listen(port, () => {

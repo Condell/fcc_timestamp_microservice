@@ -17,6 +17,8 @@ import {
 describe('calcResponse tests', () => {
   const queryStringUnix = '100000';
   const queryStringNatural = 'January 1, 2014';
+  const naturalInvalidDate = 'January 45, 2010';
+  const unixInvalidDate = '9999999999999';
   const newDate = new Date();
   const nullDate = Date.parse('incorrect');
   describe('queryStringToDate function', () => {
@@ -31,6 +33,12 @@ describe('calcResponse tests', () => {
     });
     it('should return the correct Date object when given a natural value', () => {
       expect(queryStringToDate(queryStringNatural)).to.be.ok;
+    });
+    it('should return null when given an invalid natural date', () => {
+      expect(queryStringToDate(naturalInvalidDate)).to.be.null;
+    });
+    it('should return null when given an invalid unix date', () => {
+      expect(queryStringToDate(unixInvalidDate)).to.be.null;
     });
   });
   describe('parsedToUnix function', () => {

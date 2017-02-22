@@ -6,9 +6,14 @@ function queryStringToDate(string) {
     const epochDate = new Date(0);
     const unixNumber = Number.parseInt(string, 10);
     const unixDateNumber = epochDate.setUTCSeconds(unixNumber);
+    if (new Date(unixDateNumber) == 'Invalid Date') { // eslint-disable-line eqeqeq
+      return null;
+    }
     return new Date(unixDateNumber);
   }
-
+  if (new Date(string) == 'Invalid Date') { // eslint-disable-line eqeqeq
+    return null;
+  }
   return Date.parse(string);
 }
 
@@ -24,7 +29,6 @@ function parsedToUnix(parsedDate) {
 
 
 function parsedToNatural(parsedDate) {
-  //  Need to improve validation for dates like November 54 2010
   if (parsedDate === null) {
     return null;
   }

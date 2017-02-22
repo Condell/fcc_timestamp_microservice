@@ -15,13 +15,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 
 function queryStringToDate(string) {
-  if (Number.parseInt(string, 10)) {
+  if (Number.parseInt(string, 10) && new Date(string) != 'Invalid Date') {
+    // eslint-disable-line eqeqeq
     var epochDate = new Date(0);
     var unixNumber = Number.parseInt(string, 10);
     var unixDateNumber = epochDate.setUTCSeconds(unixNumber);
     return new Date(unixDateNumber);
+  } else if (new Date(string) == 'Invalid Date') {
+    // eslint-disable-line eqeqeq
+    return null;
   }
-
   return Date.parse(string);
 }
 
@@ -35,7 +38,6 @@ function parsedToUnix(parsedDate) {
 }
 
 function parsedToNatural(parsedDate) {
-  //  Need to improve validation for dates like November 54 2010
   if (parsedDate === null) {
     return null;
   }
