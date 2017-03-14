@@ -1,6 +1,5 @@
 import express from 'express';
 import morgan from 'morgan';
-import cors from 'cors';
 import { createCompleteTimestamp } from './utilities/calcResponse';
 
 const port = process.env.PORT || 3000;
@@ -13,7 +12,7 @@ if (env === 'development') {
 }
 
 
-app.use(cors());
+app.use(express.static('public'));
 
 
 app.get('/', (req, res) => {
