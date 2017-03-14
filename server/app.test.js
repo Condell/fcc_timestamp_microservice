@@ -16,10 +16,8 @@ describe('GET route tests', () => {
       chai.request(app)
         .get('/')
         .end((err, res) => {
-          expect(res).to.be.json;
+          expect(res).to.be.html;
           expect(res).to.have.status(200);
-          expect(res.body).to.have.ownProperty('unix');
-          expect(res.body).to.have.ownProperty('natural');
           done();
         });
     });

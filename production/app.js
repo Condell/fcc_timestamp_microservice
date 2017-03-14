@@ -12,10 +12,6 @@ var _morgan = require('morgan');
 
 var _morgan2 = _interopRequireDefault(_morgan);
 
-var _cors = require('cors');
-
-var _cors2 = _interopRequireDefault(_cors);
-
 var _calcResponse = require('./utilities/calcResponse');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -28,7 +24,7 @@ if (env === 'development') {
   app.use((0, _morgan2.default)('dev'));
 }
 
-app.use((0, _cors2.default)());
+app.use(_express2.default.static('public'));
 
 app.get('/', function (req, res) {
   res.json((0, _calcResponse.createCompleteTimestamp)('928357984'));
