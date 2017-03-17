@@ -1,6 +1,8 @@
 # fcc_timestamp_microservice
 Free Code Camp Back-end Certification Timestamp Project
 
+App is available here: https://ts-microservice-fcc.herokuapp.com/
+
 Complete assignment can be found here: https://www.freecodecamp.com/challenges/timestamp-microservice
 
 User Stories:
